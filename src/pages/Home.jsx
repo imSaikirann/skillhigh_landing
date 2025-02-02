@@ -8,12 +8,14 @@ import Needhelp from '../components/Needhelp'
 import TestimonialSlider from '../components/Testimonial'
 import Mentors from '../components/Mentors'
 import Carousel from '../components/CourseCarousal'
+import CertificatePartners from '../components/CertificatePartners'
 
 
 function Home() {
   return (
     <>
     <Hero/>
+    <CertificatePartners/>
     <Hero2/>
     <Choose/>
     <Carousel/>
