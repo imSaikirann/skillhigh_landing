@@ -2,7 +2,7 @@ import React, { useState,useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { auth, provider } from '../services/firebase';
 import { signInWithPopup, createUserWithEmailAndPassword } from 'firebase/auth';
-import axios from '../services/axiosConfig';
+import axios from '../config/apiClient';
 import { FaEye, FaEyeSlash } from 'react-icons/fa'; 
 import { GoogleIcon } from '../assets/icons/icons';
 

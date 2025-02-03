@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Pattern from '../assets/patternMask.png';
 import { useEffect } from 'react';
-import axios from '../services/axiosConfig';
+import axios from '../config/apiClient';
 
 export default function FQA() {
   const [faqs, setfaqs] = useState([]);

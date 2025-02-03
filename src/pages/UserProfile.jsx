@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
-import axios from '../services/axiosConfig';
+import axios from '../config/apiClient';
 import { Link, useNavigate } from 'react-router-dom';
 import { AppContext } from '../store/StoreContext';
 import Spinner from '../components/Spinner';

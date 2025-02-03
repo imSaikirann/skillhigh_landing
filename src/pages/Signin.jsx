@@ -2,7 +2,7 @@ import React, { useState ,useEffect} from 'react';
 import { Link } from 'react-router-dom';
 import { auth, provider } from '../services/firebase';
 import { signInWithPopup, signInWithEmailAndPassword, sendPasswordResetEmail } from 'firebase/auth';
-import axios from '../services/axiosConfig';
+import axios from '../config/apiClient';
 import { GoogleIcon } from '../assets/icons/icons';
 
 export default function Signin() {

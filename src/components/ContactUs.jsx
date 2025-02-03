@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import axios from '../services/axiosConfig';
+import { motion } from 'framer-motion';  // Import motion for animations
+import axios from '../config/apiClient';
 
 const gradientStyle = {
   backgroundImage: 'linear-gradient(to right, #0D8267, #044233)',
@@ -76,9 +77,15 @@ export default function ContactUs() {
   };
 
   return (
-    <div className="flex flex-col lg:flex-row justify-around items-center p-3 md:p-6  font-inter">
+    <div className="flex flex-col lg:flex-row justify-around items-center p-3 md:p-6 font-inter">
       {/* Intro Text */}
-      <div className="lg:w-1/3 mb-8 lg:mb-0 lg:text-left">
+      <motion.div
+        className="lg:w-1/3 mb-8 lg:mb-0 lg:text-left"
+        initial={{ opacity: 0, x: -50 }}  // Start from the left and fade in
+        animate={{ opacity: 1, x: 0 }}    // Slide in to original position
+        transition={{ duration: 1, type: 'spring', stiffness: 100 }}
+        viewport={{ once: true }}        // Trigger animation when entering the viewport
+      >
         <h1
           className="text-5xl font-bold text-gray-800 mb-4 text-transparent bg-clip-text"
           style={{
@@ -92,15 +99,27 @@ export default function ContactUs() {
         <p className="text-textColor font-medium">
           Have questions or need assistance? Our team is here to help you make the right choice for your career.
         </p>
-      </div>
+      </motion.div>
 
       {/* Contact Form */}
-      <div className="w-full max-w-lg bg-white rounded-lg border border-gray-300 p-8 space-y-6">
+      <motion.div
+        className="w-full max-w-lg bg-white rounded-lg border border-gray-300 p-8 space-y-6"
+        initial={{ opacity: 0, y: 50 }}  // Start below and fade in
+        animate={{ opacity: 1, y: 0 }}    // Slide up into position
+        transition={{ duration: 1.2, type: 'spring', stiffness: 100 }}
+        viewport={{ once: true }}        // Trigger animation when entering the viewport
+      >
         <h2 className="text-4xl font-bold text-left text-headings">Contact Us</h2>
         <p className="text-textColor font-medium text-left">We'd love to hear from you! Please fill out the form below.</p>
 
         <form className="space-y-4" onSubmit={handleSubmit}>
-          <div className="flex flex-col sm:flex-row sm:space-x-4">
+          <motion.div
+            className="flex flex-col sm:flex-row sm:space-x-4"
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1, delay: 0.2 }}
+            viewport={{ once: true }}
+          >
             <div className="w-full sm:w-1/2">
               <label className="block text-textColor font-medium">Name</label>
               <input
@@ -114,7 +133,7 @@ export default function ContactUs() {
             </div>
 
             <div className="w-full sm:w-1/2 mt-4 sm:mt-0">
-              <label className="block  text-textColor font-medium">Email</label>
+              <label className="block text-textColor font-medium">Email</label>
               <input
                 type="email"
                 name="email"
@@ -124,10 +143,15 @@ export default function ContactUs() {
                 placeholder="Your Email"
               />
             </div>
-          </div>
+          </motion.div>
 
-          <div>
-            <label className="block  text-textColor font-medium">Phone Number</label>
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1, delay: 0.4 }}
+            viewport={{ once: true }}
+          >
+            <label className="block text-textColor font-medium">Phone Number</label>
             <input
               type="tel"
               name="phone"
@@ -136,10 +160,15 @@ export default function ContactUs() {
               className="w-full px-4 py-2 mt-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-border"
               placeholder="Phone Number"
             />
-          </div>
+          </motion.div>
 
-          <div>
-            <label className="block  text-textColor font-medium">Message</label>
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1, delay: 0.6 }}
+            viewport={{ once: true }}
+          >
+            <label className="block text-textColor font-medium">Message</label>
             <textarea
               name="message"
               value={formData.message}
@@ -148,25 +177,33 @@ export default function ContactUs() {
               placeholder="Your Message"
               rows="4"
             ></textarea>
-          </div>
+          </motion.div>
 
-          <button
+          <motion.button
             type="submit"
             style={gradientStyle}
-            className="w-full px-4 py-3 text-white rounded-md hover:bg-opacity-90 focus:outline-none focus:ring-2 focus:ring-border transition-all duration-300 ease-in-out transform hover:scale-105 hover:text-md hover:shadow-lg "
-            
-    
+            className="w-full px-4 py-3 text-white rounded-md hover:bg-opacity-90 focus:outline-none focus:ring-2 focus:ring-border transition-all duration-300 ease-in-out transform hover:scale-105 hover:text-md hover:shadow-lg"
+            initial={{ scale: 0.9 }}
+            animate={{ scale: 1 }}
+            transition={{ duration: 0.3 }}
+            viewport={{ once: true }}
           >
             Send Message
-          </button>
+          </motion.button>
         </form>
 
         {formStatus.message && (
-          <p className={`mt-4 font-semibold font-inter text-center ${formStatus.success ? 'text-main' : 'text-red-600'}`}>
+          <motion.p
+            className={`mt-4 font-semibold text-center ${formStatus.success ? 'text-main' : 'text-red-600'}`}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+          >
             {formStatus.message}
-          </p>
+          </motion.p>
         )}
-      </div>
+      </motion.div>
     </div>
   );
 }

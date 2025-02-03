@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import axios from '../services/axiosConfig';
+import axios from '../config/apiClient';
 
 export default function ContactUs() {
   const gradientStyle = {

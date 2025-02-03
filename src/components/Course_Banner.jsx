@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import Wave from '../assets/wave.png';
-import axios from '../services/axiosConfig';
+import axios from '../config/apiClient';
 import Spinner from '../components/Spinner';
 import CourseModules from './Module';
 export default function Course_Banner() {
