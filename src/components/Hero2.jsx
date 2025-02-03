@@ -25,7 +25,7 @@ export default function Hero2() {
       <div className="absolute inset-0 flex flex-col md:flex-row-reverse items-center justify-between  z-10  space-y-4 md:gap-4">
         
         {/* Text Content */}
-        <div className="flex flex-col mb-6 p-2 text-left md:text-left">
+        <div className="flex flex-col mb-6 py-6 text-left md:text-left">
           <h1  style={{
               backgroundImage: 'linear-gradient(to right, #0D8267, #044233)',
               backgroundSize: '100%',

@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { useParams } from 'react-router-dom';
-import axios from '../auth/axiosConfig';
+import axios from '../services/axiosConfig';
 import Icon from '../assets/icon.png'
 import Spinner from '../components/Spinner';
 import { AppContext } from '../store/StoreContext';

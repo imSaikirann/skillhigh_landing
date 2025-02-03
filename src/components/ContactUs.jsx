@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import axios from '../auth/axiosConfig';
+import axios from '../services/axiosConfig';
 
 const gradientStyle = {
   backgroundImage: 'linear-gradient(to right, #0D8267, #044233)',

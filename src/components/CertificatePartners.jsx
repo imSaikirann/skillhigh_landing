@@ -29,7 +29,7 @@ export default function CertificatePartners() {
   ];
 
   return (
-    <div className="certificate-partners py-12 bg-gray-100">
+    <div className="certificate-partners py-6 bg-green-50">
       <h2 className="font-bold font-inter text-headings text-2xl sm:text-3xl lg:text-4xl text-center mb-8">
         Our Certification Partners
       </h2>
@@ -72,7 +72,7 @@ export default function CertificatePartners() {
       >
         {partners.map((partner, index) => (
           <SwiperSlide key={index}>
-            <div className="p-4 flex w-[300px] justify-center items-center text-center transition-all duration-300 transform hover:scale-110 hover:shadow-xl  rounded-lg">
+            <div className="p-4 flex w-[380px] h-[150px] justify-center items-center text-center ">
               <img
                 src={partner.logo}
                 alt={partner.name}

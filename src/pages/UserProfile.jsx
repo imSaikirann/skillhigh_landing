@@ -1,8 +1,9 @@
 import React, { useState, useEffect, useContext } from 'react';
-import axios from '../auth/axiosConfig';
+import axios from '../services/axiosConfig';
 import { Link, useNavigate } from 'react-router-dom';
 import { AppContext } from '../store/StoreContext';
 import Spinner from '../components/Spinner';
+import {ProfileIcon,DownArrowIcon } from '../assets/icons/icons';
 
 const UserProfile = () => {
   const [userData, setUserData] = useState({});
@@ -73,20 +74,7 @@ const UserProfile = () => {
       <div className="bg-white rounded-xl shadow-md p-6 mb-8 grid grid-cols-1 md:grid-cols-2 items-center gap-4">
         <div className="flex items-center space-x-4">
           <div className="bg-main text-white rounded-full w-16 h-16 sm:w-20 sm:h-20 flex items-center justify-center text-2xl font-bold">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth="1.5"
-              stroke="currentColor"
-              className="w-10 h-10"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
-              />
-            </svg>
+            <ProfileIcon/>
           </div>
           <div>
             <h1 className="text-lg sm:text-2xl font-semibold text-gray-800">
@@ -145,22 +133,8 @@ const UserProfile = () => {
               You haven't enrolled in any courses yet!
             </p>
             <Link to="/allcourses">
-              <button className="px-6 py-3 bg-main text-white font-medium rounded-lg shadow  transition flex items-center">
+              <button className="px-6 py-3 bg-main text-white font-medium rounded-full shadow  transition flex items-center">
                 Explore Courses
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth="2"
-                  stroke="currentColor"
-                  className="w-5 h-5 ml-2"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M9 5l7 7-7 7"
-                  />
-                </svg>
               </button>
             </Link>
           </div>

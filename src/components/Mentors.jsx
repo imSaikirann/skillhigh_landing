@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
-import axios from "../auth/axiosConfig";
+import axios from "../services/axiosConfig";
+
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/autoplay";
@@ -12,7 +13,6 @@ export default function Mentors() {
     async function fetchMentors() {
       try {
         const res = await axios.get("/api/v1/mentors/getAllMentors");
- 
         setMentors(res.data.mentors);
       } catch (error) {
         console.error("Failed to fetch mentors:", error);
