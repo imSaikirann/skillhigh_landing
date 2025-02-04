@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Appreciation from "../assets/certificate_of_appreciation.png";
 import IndustrialTraining from "../assets/certificate_of_industrail_training.png";
 import GoldBlueProfessional from "../assets/Gold_Blue_Professional_Seminar_Certificate.png";
+import { motion } from 'framer-motion';
 
 export default function Certificates() {
   const [selectedImage, setSelectedImage] = useState("appreciation");
@@ -20,6 +21,7 @@ export default function Certificates() {
 
   return (
     <div className="flex justify-center items-center min-h-screen  font-inter px-4">
+      
       <div className="flex flex-col md:flex-row gap-8 p-6 md:p-10 bg-white shadow-2xl rounded-3xl w-full max-w-6xl">
         {/* Left Section: Buttons */}
         <div className="flex flex-col gap-4 md:gap-6 w-full md:w-1/3">

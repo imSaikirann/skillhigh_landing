@@ -17,9 +17,6 @@ export const AppProvider = ({ children }) => {
   const [userData, setUserData] = useState({});
   const [pricingList, setPricingList] = useState([]);
   
-
-  
- 
   const fetchCourses = async () => {
     try {
       setLoading(true);

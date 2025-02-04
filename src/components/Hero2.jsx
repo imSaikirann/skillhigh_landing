@@ -17,7 +17,7 @@ export default function Hero2() {
       <img
         src={Wave}
         alt="Background"
-        className="w-full h-[700px] md:h-[600px] lg:h-[700px] object-cover"
+        className="w-full  h-[700px] md:h-[600px] lg:h-[700px] object-cover"
       />
 
       {/* Gradient Overlays */}
@@ -29,7 +29,7 @@ export default function Hero2() {
         
         {/* Text Content */}
         <motion.div
-          className="flex flex-col mb-6 py-6 text-left md:text-left"
+          className="flex flex-col mb-6 py-10 px-3 text-left md:text-left"
           initial={{ opacity: 0, y: 50 }}   // start below
           whileInView={{ opacity: 1, y: 0 }}    // move upwards when in view
           transition={{ duration: 1.2 }}     // smooth duration

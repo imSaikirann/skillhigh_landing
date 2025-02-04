@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
 import { AppContext } from '../store/StoreContext';
 import axios from 'axios';
+import { motion } from 'framer-motion';
 
 export default function CoursePricing() {
   const gradientStyle = {
@@ -15,14 +16,12 @@ export default function CoursePricing() {
   const { courseId } = useContext(AppContext);
   const navigate = useNavigate();
 
-  // State to store pricing plans
   const [pricingPlans, setPricingPlans] = useState([]);
 
   const handleCourseCheckout = (id) => {
     navigate(`/course/checkout/${id}`);
   };
 
-  // Fetch pricing data
   useEffect(() => {
     async function fetchPlans() {
       try {
@@ -42,7 +41,13 @@ export default function CoursePricing() {
         alt="Background Wave"
         className="w-full h-[1500px] md:h-[1000px] lg:h-[900px] object-cover"
       />
-      <div className="absolute inset-0 flex flex-col items-center justify-center text-black p-4 font-inter">
+      <motion.div
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
+        className="absolute inset-0 flex flex-col items-center justify-center text-black p-4 font-inter"
+      >
         <div className="text-center">
           <h1 className="text-5xl md:text-6xl font-extrabold mb-2 text-main">
             Specialized Learning Fee
@@ -53,19 +58,23 @@ export default function CoursePricing() {
         </div>
 
         {/* Pricing Section */}
-        <div className="flex flex-col md:flex-row lg:flex-row gap-6 mt-12 items-center justify-center">
-          {/* Dynamically Render Pricing Plans */}
-          {pricingPlans.map((plan) => (
-            <div
+        <motion.div
+          className="flex flex-col md:flex-row lg:flex-row gap-6 mt-12 items-center justify-center"
+        >
+          {pricingPlans.map((plan, index) => (
+            <motion.div
               key={plan.pricingId}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.2 }}
               className="w-[350px] bg-white p-6 rounded-md shadow-md flex flex-col items-center text-center space-y-4"
             >
               <p className="text-lg font-bold text-textColor">
                 {plan.pricingName}
               </p>
               <p className="text-5xl font-bold text-main">
-                {plan.price}{' '}
-                <span className="text-2xl font-medium">INR</span>
+                {plan.price} <span className="text-2xl font-medium">INR</span>
               </p>
               <p className="text-md text-gray-600 font-medium">
                 {plan.pricingName === 'Self-Lead'
@@ -91,10 +100,10 @@ export default function CoursePricing() {
               >
                 Enroll now
               </button>
-            </div>
+            </motion.div>
           ))}
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     </div>
   );
 }

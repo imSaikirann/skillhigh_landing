@@ -44,7 +44,7 @@ export default function AboutMentors() {
           <Card
             image={Founder}
             title="Sai Charan"
-            role="CEO & CO-FOUNDER "
+            role="CEO & FOUNDER "
             description="At SkillHigh, we're committed to bridging the gap between education and industry, empowering students with in-demand skills for successful careers."
             link="https://www.linkedin.com/in/sai-charan-996648202/"
           />
