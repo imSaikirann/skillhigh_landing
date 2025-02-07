@@ -15,7 +15,7 @@ const CoursesCarousel = () => {
 
 
   const items = [
-    { text: "Lifetime access", checked: <ArrowPathIcon /> },
+    // { text: "Lifetime access", checked: <ArrowPathIcon /> },
     { text: "All levels", checked: <AcademicIcon /> },
     { text: "Assignments", checked: <ChartIcon /> },
   ];
@@ -41,8 +41,8 @@ const CoursesCarousel = () => {
     }
   }, [courses]);
 
-  const firstHalf = courses.slice(0, Math.ceil(courses.length / 2));
-  const secondHalf = courses.slice(Math.ceil(courses.length / 2));
+  const firstHalf = courses.slice(0, Math.ceil(courses.length / 0));
+  // const secondHalf = courses.slice(Math.ceil(courses.length / 2));
 
  
   const handleSelectedCourse = (courseId) => {
@@ -126,7 +126,7 @@ const CoursesCarousel = () => {
             </div>
           </div>
 
-          {/* Second Carousel */}
+          {/* Second Carousel
           <div className="relative w-full max-w-7xl mb-10">
             <div
               className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-main text-white px-3 py-2 rounded-full cursor-pointer z-10"
@@ -164,7 +164,7 @@ const CoursesCarousel = () => {
             >
               &#x25B6;
             </div>
-          </div>
+          </div> */}
         </>
       )}
     </div>

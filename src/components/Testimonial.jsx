@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import axios from "../services/axiosConfig";
-import { QuoteIcon } from "../assets/icons/icons";
-import { Star } from "../assets/icons/icons";
+import { QuoteIcon, Star, LeftArrow, RightArrow } from "../assets/icons/icons";
 
 const TestimonialSlider = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -29,19 +28,20 @@ const TestimonialSlider = () => {
   };
 
   return (
-    <section className="bg-gradient-to-r from-gray-50 to-gray-100 py-16">
+    <section className="py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-800 text-center mb-12">
+        <h2 className="text-4xl font-extrabold text-gray-800 text-center mb-12">
           Hear from Our Achievers
         </h2>
 
         {testimonials.length > 0 && (
           <div className="relative">
+            {/* Previous Button */}
             <button
               onClick={goToPrevious}
-              className="absolute top-1/2 left-2 -translate-y-1/2 bg-main text-white px-3 py-2 rounded-full shadow-lg hover:scale-110 transition-transform"
+              className="absolute top-1/2 left-2 -translate-y-1/2 bg-main text-white p-3 rounded-full shadow-lg hover:scale-110 transition-transform"
             >
-              &larr;
+              <LeftArrow />
             </button>
 
             <div className="overflow-hidden w-full">
@@ -49,19 +49,19 @@ const TestimonialSlider = () => {
                 <motion.div
                   key={currentIndex}
                   className="flex justify-center"
-                  initial={{ opacity: 0, x: -50 }}
+                  initial={{ opacity: 0, x: -100 }}
                   animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: 50 }}
-                  transition={{ duration: 0.5 }}
+                  exit={{ opacity: 0, x: 100 }}
+                  transition={{ duration: 0.6 }}
                 >
-                  <div className="w-full max-w-3xl bg-white shadow-lg rounded-xl p-8 md:p-12 flex flex-col items-center">
+                  <div className="w-full max-w-3xl bg-green-50 border-2 border-main rounded-2xl p-8 md:p-12 flex flex-col items-center">
                     <QuoteIcon className="text-main mb-6" size={40} />
                     <p className="text-gray-700 text-center sm:text-lg italic mb-6">
                       "{testimonials[currentIndex].review}"
                     </p>
-                    <div className="flex items-center justify-between">
+                    <div className="flex items-center justify-between w-full">
                       <div>
-                        <h3 className="text-lg font-semibold text-main">
+                        <h3 className="text-xl font-semibold text-main">
                           {testimonials[currentIndex].name}
                         </h3>
                         <p className="text-sm text-gray-500">
@@ -72,11 +72,7 @@ const TestimonialSlider = () => {
                             <Star
                               key={index}
                               size={18}
-                              color={
-                                index < testimonials[currentIndex].stars
-                                  ? "#fbbf24"
-                                  : "#d1d5db"
-                              }
+                              color={index < testimonials[currentIndex].stars ? "#fbbf24" : "#d1d5db"}
                             />
                           ))}
                         </div>
@@ -85,7 +81,7 @@ const TestimonialSlider = () => {
                         <img
                           src={testimonials[currentIndex].collageLogo}
                           alt="College Logo"
-                          className="w-24 h-24 object-cover rounded-full"
+                          className="w-20 h-20 object-cover rounded-full"
                         />
                       )}
                     </div>
@@ -94,23 +90,26 @@ const TestimonialSlider = () => {
               </AnimatePresence>
             </div>
 
+            {/* Next Button */}
             <button
               onClick={goToNext}
-              className="absolute top-1/2 right-2 -translate-y-1/2 bg-main text-white px-3 py-2  rounded-full shadow-lg hover:scale-110 transition-transform"
+              className="absolute top-1/2 right-2 -translate-y-1/2 bg-main text-white p-3 rounded-full shadow-lg hover:scale-110 transition-transform"
             >
-              &rarr;
+              <RightArrow />
             </button>
           </div>
         )}
 
+        {/* Navigation Dots */}
         <div className="flex justify-center gap-2 mt-6">
           {testimonials.map((_, index) => (
-            <button
+            <motion.button
               key={index}
               onClick={() => setCurrentIndex(index)}
-              className={`w-3 h-3 rounded-full ${
-                index === currentIndex ? "bg-main" : "bg-gray-300"
+              className={`w-4 h-4 rounded-full border-2 transition-colors duration-300 ${
+                index === currentIndex ? "bg-main border-main" : "bg-gray-200 border-gray-300"
               }`}
+              whileHover={{ scale: 1.2 }}
             />
           ))}
         </div>

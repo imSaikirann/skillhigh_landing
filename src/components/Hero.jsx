@@ -31,7 +31,7 @@ export default function Hero() {
           transition={{ duration: 1 }}
         >
           <div className="flex items-center justify-center md:flex-row mt-32 md:mt-0">
-            <h1 className="text-gray-900 font-bold text-lg sm:text-2xl font-sans" style={{ wordSpacing: '0.2rem' }}>
+            <h1 className="text-gray-900 font-semibold text-lg sm:text-2xl font-sans" style={{ wordSpacing: '0.2rem' }}>
               Credential Platform Partner
             </h1>
             <img src={WiproLogo} alt="Wipro Logo" className="mb-4 w-40 md:w-48 lg:w-56" />
