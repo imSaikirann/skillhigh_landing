@@ -86,7 +86,7 @@ export default function Footer() {
     <h2 className="text-lg font-semibold mb-2">Follow Us</h2>
     <div className="flex space-x-4">
       <a
-        href="https://linkedin.com"
+        href="https://www.linkedin.com/company/skillhigh/"
         aria-label="LinkedIn"
         target="_blank"
         rel="noopener noreferrer"
