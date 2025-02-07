@@ -5,7 +5,7 @@ import { Autoplay } from "swiper/modules";
 import Spinner from "../components/Spinner";
 import { AppContext } from "../store/StoreContext";
 import { useNavigate } from "react-router-dom";
-import { ChartIcon,ArrowPathIcon,AcademicIcon } from '../assets/icons/icons';
+import { ChartIcon,AcademicIcon,ProjectIcon } from '../assets/icons/icons';
 
 const CoursesCarousel = () => {
   const navigate = useNavigate();
@@ -15,9 +15,9 @@ const CoursesCarousel = () => {
 
 
   const items = [
-    // { text: "Lifetime access", checked: <ArrowPathIcon /> },
-    { text: "All levels", checked: <AcademicIcon /> },
-    { text: "Assignments", checked: <ChartIcon /> },
+      { text: "All levels", checked: <ChartIcon /> },
+        { text: "Projects", checked: <ProjectIcon /> },
+        { text: "Internships", checked: <AcademicIcon /> },
   ];
 
   useEffect(() => {
