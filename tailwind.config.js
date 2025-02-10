@@ -18,8 +18,6 @@ export default {
       fontFamily: {
         inter: ["Red Hat Text", "serif"],
       },
-
-    
         screens: {
           'md-lg': { min: '768px', max: '1023px' }, 
         },

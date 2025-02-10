@@ -1,75 +1,86 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import axios from '../config/apiClient';
+import { WorkIcon, LocationIcon } from '../assets/icons/icons';
 
 export default function Careers() {
-  const jobs = [
-  
-    {
-      title: "Campus Ambassador",
-      responsibilities: [
-       "SkillHigh is seeking proactive and enthusiastic individuals for a part-time internship as Campus Ambassadors." ,
-       "Responsibilities include representing SkillHigh on your campus, promoting events, workshops, and programs, organizing campaigns to drive student participation, collaborating with student groups and faculty, and encouraging registrations and engagement in SkillHigh initiatives while providing feedback for improvement. ",
-       "Ideal candidates should possess strong communication and leadership skills, be active in campus activities and social media, and demonstrate a proactive and organized approach. Benefits include a certificate, letter of recommendation, performance-based rewards, incentives, and professional networking opportunities."
-      ],
-      formLink: "https://forms.gle/2BikP5Z1KgdFWc7v8", 
-    },
-    {
-      title: "Business Development Manager",
-      responsibilities: [
-        "Generate high-quality leads through cold calling and the B2C channel, leveraging experience to convert them into valuable clients.",
-        "Effectively onboard campus ambassadors from colleges, manage their performance, and ensure strategic engagement.",
-        "Utilize 1+ year of business development experience to achieve continuous revenue growth and contribute significantly to company success.",
-        "Build, manage, and motivate a high-performing team, showcasing strong leadership and team-handling capabilities.",
-        "Cultivate strategic B2B partnerships and maintain robust corporate relationships to expand business opportunities.",
-        "Identify and implement innovative sales and marketing strategies, driving maximum results in a competitive market.",
-        "Provide career guidance to students, ensuring they receive valuable insights for shaping their futures.",
-        "Meet requirements of minimum 60% in 10th, 12th, and graduation, combined with proven experience, exceptional communication skills, resilience, and a dynamic work ethic.",
-      ],
-      formLink: "https://forms.gle/WEWcNqqvtv4YUfEb9", 
-    },
-    {
-      title: "Business Development Associate",
-      responsibilities: [
-        "Generate high-quality leads through cold calling and the B2C channel, converting them into valuable clients.",
-        "Onboard campus ambassadors from colleges, manage their performance, and drive strategic engagement.",
-        "Achieve continuous revenue growth, contributing to the overall success of the company.",
-        "Build and lead a motivated team, showcasing exceptional leadership skills.",
-        "Foster strategic B2B partnerships and cultivate strong corporate relationships.",
-        "Explore and implement innovative channels to maximize business opportunities in sales and marketing.",
-        "Assist students in shaping their careers through effective counseling and guidance.",
-        "Meet requirements of minimum 60% in 10th, 12th, and graduation, exceptional communication skills, resilience, goal orientation, and the ability to thrive in a dynamic environment.",
-      ],
-      formLink: "https://forms.gle/j4znEfuKg6hNsKyt6", 
-    },
-  ];
+  const [jobs, setJobs] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchJobs = async () => {
+      try {
+        const response = await axios.get('/api/v1/careers/allOpportunites');
+        setJobs(response.data.additional || []);
+        setLoading(false);
+      } catch (err) {
+        setError('Failed to load job postings. Please try again later.');
+        setLoading(false);
+      }
+    };
+
+    fetchJobs();
+  }, []);
+
+  if (loading) {
+    return <div className="text-center text-xl mt-10 animate-pulse">Loading job postings...</div>;
+  }
+
+  if (error) {
+    return <div className="text-center text-red-500 mt-10">{error}</div>;
+  }
 
   return (
-    <div className="p-6 bg-gray-100 min-h-screen font-inter">
-      <h1 className="text-3xl font-bold text-left text-main mb-8">Careers</h1>
-      <div className="space-y-8">
-        {jobs.map((job, index) => (
-          <div
-            key={index}
-            className="bg-white shadow-md rounded-lg p-6 border border-gray-200"
-          >
-            <h2 className="text-2xl font-semibold text-gray-800 mb-4">{job.title}</h2>
-            <ul className="list-disc pl-5 space-y-2 text-gray-600">
-              {job.responsibilities.map((responsibility, i) => (
-                <li key={i}>{responsibility}</li>
-              ))}
-            </ul>
-            <div className="text-right mt-6">
-              <a
-                href={job.formLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-main text-white px-6 py-2 rounded-md focus:ring focus:ring-green-800"
-              >
-                Apply Now
-              </a>
+    <div className="p-8 bg-gray-50 min-h-screen font-inter">
+      <h1 className="text-4xl font-extrabold text-left text-main mb-10">Careers</h1>
+      {jobs.length === 0 ? (
+        <div className="text-center text-gray-600">No job postings available at the moment.</div>
+      ) : (
+        <div className="space-y-8">
+          {jobs.map((job, index) => (
+            <div
+              key={index}
+              className="bg-white shadow-lg hover:shadow-xl rounded-2xl p-8 border border-gray-200 transition-shadow duration-300"
+            >
+              <h2 className="text-2xl font-semibold text-gray-800 mb-4">{job.roleName}</h2>
+              <p className="text-gray-700 mb-4 line-clamp-3">{job.jobDescription}</p>
+              <div className="flex flex-col md:flex-row items-start md:items-center text-sm text-gray-600 space-y-2 md:space-y-0 md:space-x-4 mb-6">
+                <span className="flex items-center gap-3"><LocationIcon /> {job.location}</span>
+                <span className="flex items-center gap-3"><WorkIcon /> {job.type}</span>
+              </div>
+
+              <div className="mb-6">
+                <h3 className="text-lg font-bold text-gray-800 mb-2">Key Responsibilities:</h3>
+                <ul className="list-disc pl-5 space-y-2 text-gray-700">
+                  {job.responsibilities.split('\n').map((responsibility, i) => (
+                    <li key={i}>{responsibility}</li>
+                  ))}
+                </ul>
+              </div>
+
+              <div className="mb-6">
+                <h3 className="text-lg font-bold text-gray-800 mb-2">Qualifications & Requirements:</h3>
+                <ul className="list-disc pl-5 space-y-2 text-gray-600">
+                  {job.requirements.split('\n').map((requirement, i) => (
+                    <li key={i}>{requirement}</li>
+                  ))}
+                </ul>
+              </div>
+
+              <div className="text-right mt-8">
+                <a
+                  href={job.applicationLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-main text-white px-8 py-3 rounded-2xl hover:bg-green-700 focus:ring focus:ring-green-500 transition-all"
+                >
+                  Apply Now
+                </a>
+              </div>
             </div>
-          </div>
-        ))}
-      </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 }

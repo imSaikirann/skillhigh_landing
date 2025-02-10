@@ -202,3 +202,20 @@ export const RightArrow = () => (
 
 
 )
+
+
+export const WorkIcon = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" strokeWidth="1.5" width="24" height="24" color="#000000">
+    <rect x="1.5" y="6.27" width="21" height="15.27" rx="1.91" fill="none" stroke="currentColor" strokeLinecap="square" strokeMiterlimit="10" />
+    <path d="M13.91,13h4.77A3.81,3.81,0,0,0,22.5,9.14v-1a1.91,1.91,0,0,0-1.91-1.91H3.41A1.91,1.91,0,0,0,1.5,8.18v1A3.81,3.81,0,0,0,5.32,13h8.59Z" fill="none" stroke="currentColor" strokeMiterlimit="10" />
+    <line x1="12" y1="12" x2="12" y2="13.91" fill="none" stroke="currentColor" strokeLinecap="square" strokeMiterlimit="10" />
+    <polygon points="15.82 6.27 8.18 6.27 9.14 2.46 14.86 2.46 15.82 6.27" fill="none" stroke="currentColor" strokeLinecap="square" strokeMiterlimit="10" />
+  </svg>
+);
+
+export const LocationIcon = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" strokeWidth="1.5" width="24" height="24" color="#000000">
+    <path d="M20.5,10.11c0,6.61-8.5,12.28-8.5,12.28S3.5,16.72,3.5,10.11a8.5,8.5,0,0,1,17,0Z" fill="none" stroke="currentColor" strokeMiterlimit="10" />
+    <path d="M12,6.33a3.78,3.78,0,1,1-3.78,3.78" fill="none" stroke="currentColor" strokeMiterlimit="10" />
+  </svg>
+);

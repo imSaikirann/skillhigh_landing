@@ -9,6 +9,7 @@ import TestimonialSlider from '../components/Testimonial'
 import Mentors from '../components/Mentors'
 import Carousel from '../components/CourseCarousal'
 import CertificatePartners from '../components/CertificatePartners'
+import ApprovalTag from '../components/ApprovalTag'
 
 
 function Home() {
@@ -17,6 +18,7 @@ function Home() {
     <Hero/>
     <CertificatePartners/>
     <Hero2/>
+    <ApprovalTag/>
     <Choose/>
     <Carousel/>
     <Needhelp/>
