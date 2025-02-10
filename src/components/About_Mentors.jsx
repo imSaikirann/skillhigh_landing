@@ -8,7 +8,7 @@ import { LinkedInIcon } from '../assets/icons/icons';
 function Card({ image, title, role, description, link }) {
   return (
     <motion.div
-      className="bg-white border border-gray-300 rounded-2xl p-6 flex flex-col items-center gap-4 shadow-lg max-w-sm"
+      className="bg-white border border-gray-300 rounded-2xl p-6 flex flex-col items-center gap-4 shadow-lg max-w-sm min-h-[450px] justify-between"
       whileHover={{ scale: 1.05, boxShadow: '0px 10px 20px rgba(0, 0, 0, 0.2)' }}
       transition={{ type: 'spring', stiffness: 200, damping: 10 }}
     >
@@ -21,14 +21,16 @@ function Card({ image, title, role, description, link }) {
           transition={{ duration: 0.3 }}
         />
       </div>
-      <h2 className="text-2xl font-bold text-main mt-4">{title}</h2>
-      <h3 className="text-lg font-medium text-gray-500">{role}</h3>
-      <p className="text-center text-gray-600 font-medium text-sm mt-2 mb-4">{description}</p>
+      <div className="text-center">
+        <h2 className="text-2xl font-bold text-main mt-4">{title}</h2>
+        <h3 className="text-lg font-medium text-gray-500">{role}</h3>
+        <p className="text-gray-600 font-medium text-sm mt-2 mb-4">{description}</p>
+      </div>
       <motion.a
         href={link}
         target="_blank"
         rel="noopener noreferrer"
-        className="text-blue-600 hover:text-blue-800 flex items-center space-x-2"
+        className="text-gray-700 hover:text-main flex items-center space-x-2 "
         whileHover={{ scale: 1.1 }}
       >
         <LinkedInIcon />
