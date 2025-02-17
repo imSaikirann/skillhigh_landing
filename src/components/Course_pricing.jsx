@@ -39,7 +39,7 @@ export default function CoursePricing() {
       <img
         src={Wave}
         alt="Background Wave"
-        className="w-full h-[1500px] md:h-[1000px] lg:h-[900px] object-cover"
+        className="w-full h-[2300px] md:h-[1000px] lg:h-[900px] object-cover"
       />
       <motion.div
         initial={{ opacity: 0, y: 50 }}
@@ -76,11 +76,11 @@ export default function CoursePricing() {
               <p className="text-5xl font-bold text-main">
                 {plan.price} <span className="text-2xl font-medium">INR</span>
               </p>
-              <p className="text-md text-gray-600 font-medium">
+              {/* <p className="text-md text-gray-600 font-medium">
                 {plan.pricingName === 'Self-Lead'
                   ? 'One-time payment for self-led access'
                   : 'Lifetime access with all features'}
-              </p>
+              </p> */}
               <div className="text-left mt-4">
                 {plan.features.map((feature, index) => (
                   <div key={index} className="flex font-medium items-center space-x-2">

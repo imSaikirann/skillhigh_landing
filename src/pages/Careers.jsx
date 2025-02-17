@@ -31,8 +31,8 @@ export default function Careers() {
   }
 
   return (
-    <div className="p-8 bg-gray-50 min-h-screen font-inter">
-      <h1 className="text-4xl font-extrabold text-left text-main mb-10">Careers</h1>
+    <div className="p-3 sm:p-8 bg-gray-50 min-h-screen font-inter">
+      <h1 className="text-4xl font-extrabold text-left text-main mb-10 mt-4">Careers</h1>
       {jobs.length === 0 ? (
         <div className="text-center text-gray-600">No job postings available at the moment.</div>
       ) : (
@@ -72,7 +72,7 @@ export default function Careers() {
                   href={job.applicationLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-main text-white px-8 py-3 rounded-2xl hover:bg-green-700 focus:ring focus:ring-green-500 transition-all"
+                  className="bg-main text-white px-8 py-3 rounded-3xl  transition-all"
                 >
                   Apply Now
                 </a>
