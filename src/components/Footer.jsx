@@ -1,5 +1,5 @@
 import React from 'react';
-import Logo from '../assets/logo.jpg';
+import Logo from '../assets/logo.png';
 import PP from '../assets/PRIVACY_POLICY.pdf'
 import TC from '../assets/TermsandConditions.pdf'
 import {InstagramIcon,LinkedInIcon} from '../assets/icons/icons'
@@ -12,7 +12,8 @@ export default function Footer() {
     window.open(TC, "_blank");
   }
   return (
-    <footer className="bg-white text-black py-10 border-t-2 font-inter">
+    <footer className="bg-gradient-to-r from-white to-main rounded-3xl
+ text-black py-10 border-t-2 font-inter">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
 
@@ -54,7 +55,7 @@ export default function Footer() {
           {/* About Us Section */}
           <div>
             <h2 className="text-lg font-semibold mb-4">About Us</h2>
-            <p className="text-gray-700 text-md text-justify" style={{ hyphens: "auto", wordBreak: "break-word", wordSpacing: "0.03em" }}>
+            <p className="text-gray-900text-md text-justify" style={{ hyphens: "auto", wordBreak: "break-word", wordSpacing: "0.03em" }}>
               We are dedicated to providing high-quality content and services. Join us to enhance your skills and explore new opportunities.
             </p>
           </div>
@@ -62,7 +63,7 @@ export default function Footer() {
           {/* Quick Links */}
           <div>
             <h2 className="text-lg font-semibold mb-4">Quick Links</h2>
-            <ul className="text-gray-700 space-y-2">
+            <ul className="text-gray-900 space-y-2">
               <li><a href="/aboutus" className="hover:text-main">About</a></li>
               <li><a href="/careers" className="hover:text-main">Careers</a></li>
               <li><a href="/allcourses" className="hover:text-main">Courses</a></li>
@@ -73,9 +74,9 @@ export default function Footer() {
           {/* Contact Info */}
           <div className=' text-justify' style={{ hyphens: "auto", wordBreak: "break-word", wordSpacing: "0.03em" }}>
             <h2 className="text-lg font-semibold mb-4">Contact</h2>
-            <ul className="text-gray-700 space-y-2 justify-normal">
-              <li>Email: <a href="mailto:admin@skillhigh.in" className="hover:text-main">admin@skillhigh.in</a></li>
-              <li>Phone: 9182661204</li>
+            <ul className="text-gray-900 space-y-2 justify-normal">
+              <li>Email: <a href="mailto:admin@skillhigh.in">admin@skillhigh.in</a></li>
+              <li>Phone: 7207371204</li>
               <li>Address: P.No: 169, First Floor.
                 Woods Enclave, Woods Central Park, Suchitra Sub Post, Pet Basheerabad,
                 Suchitra Junction, Quthbullapur, Medchal-Malkajgiri Dist., Telangana, India
@@ -119,7 +120,7 @@ export default function Footer() {
               <span>|</span>
               <a href="/shipping-and-delivery" className="hover:text-main">Shipping and Delivery</a> */}
             </div>
-            <p className="mt-4 md:mt-0 text-gray-400">
+            <p className="mt-4 md:mt-0 text-gray-800">
               &copy; {new Date().getFullYear()} Skill High. All rights reserved.
             </p>
           </div>

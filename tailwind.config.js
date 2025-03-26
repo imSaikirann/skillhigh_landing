@@ -8,6 +8,7 @@ export default {
     extend: {
       colors: {
         main: "#0D8267",
+        secondary:"#c3ded8",
         purple: "#818CF8",
         darkColor: "#F3F8F7",
         nav: "#F3F8F7",

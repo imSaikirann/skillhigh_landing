@@ -10,6 +10,7 @@ import Mentors from '../components/Mentors'
 import Carousel from '../components/CourseCarousal'
 import CertificatePartners from '../components/CertificatePartners'
 import ApprovalTag from '../components/ApprovalTag'
+import Timeline from '../components/Timeline'
 
 
 function Home() {
@@ -21,6 +22,7 @@ function Home() {
     <ApprovalTag/>
     <Choose/>
     <Carousel/>
+    <Timeline/>
     <Needhelp/>
     <FQA/>
     <TestimonialSlider/>

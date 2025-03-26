@@ -1,6 +1,4 @@
 
-
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -18,4 +16,11 @@
   @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
+  }
+  .shadow-glow {
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1);
+  }
+  
+  .shadow-inner-glow {
+    box-shadow: inset 0 0 12px rgba(0, 0, 0, 0.3);
   }

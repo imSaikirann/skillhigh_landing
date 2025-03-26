@@ -34,7 +34,7 @@ export default function Hero() {
             <h1 className="text-gray-900 font-semibold text-lg sm:text-2xl font-sans" style={{ wordSpacing: '0.2rem' }}>
               Credential Platform Partner
             </h1>
-            <img src={WiproLogo} alt="Wipro Logo" className="mb-4 w-40 md:w-48 lg:w-56" />
+            <img src={WiproLogo} alt="Wipro Logo" className="mb-1 w-40 md:w-48 lg:w-56" />
           </div>
 
           {/* Main Text Content */}
@@ -75,7 +75,7 @@ export default function Hero() {
                   alt="Group of learners"
                   className="rounded-lg w-auto h-[60px]"
                 />
-                <h2 className="text-md font-semibold">Trusted by 50k+ learners</h2>
+                <h2 className="text-md font-semibold">Trusted by 200+ learners</h2>
               </div>
             </div>
 

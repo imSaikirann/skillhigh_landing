@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef, useContext } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import Logo from "../assets/logo.png";
 import { AppContext } from "../store/StoreContext";
 import { ArrowIcon, DownArrowIcon, ProfileIcon, MenuBar, CloseIcon } from "../assets/icons/icons";
@@ -15,6 +15,7 @@ export const Navbar = () => {
   const courseDropdownRef = useRef(null);
   const { token, departments, fetchDepartments } = useContext(AppContext);
   const navigate = useNavigate();
+  const location = useLocation(); // Get current location (URL path)
 
   useEffect(() => {
     fetchDepartments();
@@ -61,6 +62,10 @@ export const Navbar = () => {
     textAlign: "center",
   };
 
+  const getActiveClass = (path) => {
+    return location.pathname === path ? "text-main font-bold" : "text-gray-700";
+  };
+
   return (
     <div className="relative z-50">
       {/* Fixed Navbar */}
@@ -70,10 +75,10 @@ export const Navbar = () => {
         </Link>
 
         <div className="hidden font-inter md:flex space-x-6 items-center">
-          <Link to="/" className="text-md font-normal cursor-pointer hover:text-gray-700">
+          <Link to="/" className={`text-md font-normal cursor-pointer hover:text-gray-700 ${getActiveClass("/")}`}>
             Home
           </Link>
-          <Link to="/aboutus" className="text-md font-normal cursor-pointer hover:text-gray-700">
+          <Link to="/aboutus" className={`text-md font-normal cursor-pointer hover:text-gray-700 ${getActiveClass("/aboutus")}`}>
             About
           </Link>
 
@@ -148,13 +153,13 @@ export const Navbar = () => {
               </button>
 
               <nav className="mt-10 space-y-6">
-                <Link to="/" onClick={closeMenu} className="block text-lg text-gray-700 hover:text-main">
+                <Link to="/" onClick={closeMenu} className={`block text-lg ${getActiveClass("/")}`}>
                   Home
                 </Link>
-                <Link to="/aboutus" onClick={closeMenu} className="block text-lg text-gray-700 hover:text-main">
+                <Link to="/aboutus" onClick={closeMenu} className={`block text-lg ${getActiveClass("/aboutus")}`}>
                   About
                 </Link>
-                <Link to="/allcourses" onClick={closeMenu} className="block text-lg text-gray-700 hover:text-main">
+                <Link to="/allcourses" onClick={closeMenu} className={`block text-lg ${getActiveClass("/allcourses")}`}>
                   Courses
                 </Link>
               </nav>
